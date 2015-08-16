@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :meter_id, uniqueness: true
 
   def get_points
-    10
+    rand(100)
   end
 
   scope :by_fbid, lambda { |fb_id| where(:fb_id => fb_id) } 
