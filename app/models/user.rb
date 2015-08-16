@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
   def get_points
     10
   end
+
+  scope :by_fbid, lambda { |fb_id| where(:fb_id => fb_id) } 
 end
