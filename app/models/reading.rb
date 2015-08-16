@@ -10,4 +10,13 @@ class Reading < ActiveRecord::Base
   scope :from_last_week, -> { where(:date => 1.week.ago..Time.now) }
   scope :from_last_month, -> { where(:date => 1.month.ago..Time.now) }
   scope :from_last_six_months, -> { where(:date => 6.months.ago..Time.now) }
+
+  def self.sum_over_last_week
+    sum = Array.new(13, 0)
+    Reading.from_last_week.each do |reading|
+      sum[reading.user_id] += reading.reading_cf
+    end
+
+    sum
+  end
 end

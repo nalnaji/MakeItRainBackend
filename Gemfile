@@ -15,3 +15,5 @@ gem 'rabl'
 gem 'oj'
 
 gem 'has_scope'
+
+gem 'descriptive_statistics'
