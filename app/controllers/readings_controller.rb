@@ -1,7 +1,14 @@
 class ReadingsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @readings = @user.readings
+    query = @user.readings
+    query = query.before(params[:before]) if params[:before]
+    query = query.after(params[:after]) if params[:after]
+    query = query.from_last_day if params[:from_last_day]
+    query = query.from_last_week if params[:from_last_week]
+    query = query.from_last_month if params[:from_last_month]
+    query = query.from_last_6_months if params[:from_last_6_months]
+    @readings = query.all
     render :index
   end
 
