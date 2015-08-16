@@ -52,6 +52,9 @@ GEM
     minitest (5.8.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    oj (2.12.12)
+    rabl (0.11.6)
+      activesupport (>= 2.3.14)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -100,6 +103,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  oj
+  rabl
   rails (= 4.2.2)
   rails-api
   spring
