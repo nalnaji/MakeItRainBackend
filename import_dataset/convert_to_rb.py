@@ -3,6 +3,8 @@
 # First, the script orders the GUIDs and converts them to integers starting at 0
 # Then, it outputs a ruby file for easy import into the database
 
+import datetime
+
 inputFilename = "anon_cons_hourly.csv"
 outputFilename = "import_readings.rb"
 
@@ -19,6 +21,16 @@ with open(inputFilename, 'r') as inputFile:
         if len(tokens) == 1:
             # Skip empty line
             continue
+        
+        # Pre-process the date to be 4 months forward
+        # Clip the UTC offset
+        tokens[0] = tokens[0][:-3]
+        dt = datetime.datetime.strptime(tokens[0], "%Y-%m-%d %H:%M:%S")
+        # Add a 4-month (120-day) fudge factor so we can simulate real-time
+        # numbers
+        dt += datetime.timedelta(120)
+        tokens[0] = str(dt)
+
         allDataTokens += [tokens,]
 
 guidIndex = 0
