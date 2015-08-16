@@ -52,6 +52,8 @@ GEM
     minitest (5.8.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    nokogiri (1.6.6.2-x86-mingw32)
+      mini_portile (~> 0.6.0)
     oj (2.12.12)
     rabl (0.11.6)
       activesupport (>= 2.3.14)
@@ -94,6 +96,7 @@ GEM
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
     sqlite3 (1.3.10)
+    sqlite3 (1.3.10-x86-mingw32)
     thor (0.19.1)
     thread_safe (0.3.5)
     tzinfo (1.2.2)
@@ -101,6 +104,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   oj
@@ -109,3 +113,6 @@ DEPENDENCIES
   rails-api
   spring
   sqlite3
+
+BUNDLED WITH
+   1.10.6
