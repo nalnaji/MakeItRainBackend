@@ -1,6 +1,6 @@
 class ReadingsController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
+    @user = User.find_by_fb_id(params[:user_id])
     query = @user.readings
     query = query.before(params[:before]) if params[:before]
     query = query.after(params[:after]) if params[:after]

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by_fb_id(params[:id])
     render :show
   end
 
@@ -20,11 +20,13 @@ class UsersController < ApplicationController
   end
 
   def update
+    params[:id] = User.find_by_fb_id(params[:user][:fb_id])
     @user = User.update(user_params)
     render :update
   end
 
   def destroy
+    params[:id] = User.find_by_fb_id(params[:user][:fb_id])
     User.destroy(params[:id])
   end
 
