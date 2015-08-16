@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    if params[:by_fbid].present?
+     params[:by_fbid] = params[:by_fbid].split(',')
+     @users = User.by_fbid(params[:by_fbid])
+    else
+      @users = User.all
+    end
     render :index
   end
 
