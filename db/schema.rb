@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150816004145) do
+ActiveRecord::Schema.define(version: 20150816013546) do
+
+  create_table "readings", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "reading_cf"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
